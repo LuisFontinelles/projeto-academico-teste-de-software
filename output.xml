@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.9.6 on darwin)" generated="2026-05-28T14:50:12.762969" rpa="false" schemaversion="5">
+<suite id="s1" name="Teste1 Cadastro Medicamento" source="/Library/Developer/Projects/Faculdade/projeto-academico-teste-de-software/tests/ui/teste1_cadastro_medicamento.robot">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:12.874882" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastrar'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-05-28T14:50:12.874769" elapsed="9.987609"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-05-28T14:50:22.863734" elapsed="0.495156"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:12.874428" elapsed="10.484635"/>
+</kw>
+<test id="s1-t1" name="CT01 - Deve cadastrar medicamento com dados válidos" line="17">
+<kw name="Dado que o usuario acessa a tela de cadastro">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:23.364811" level="INFO">Opening url 'http://localhost:3000/cadastrar'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.364688" elapsed="0.031038"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.395946" elapsed="0.015668"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:23.364308" elapsed="0.047398"/>
+</kw>
+<kw name="E informa o nome">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.412215" elapsed="0.018484"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:23.433968" level="INFO">Typing text 'Losartana' into text field 'id=nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.433687" elapsed="0.091101"/>
+</kw>
+<arg>'${nome}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.430913" elapsed="0.093957"/>
+</kw>
+<arg>Losartana</arg>
+<status status="PASS" start="2026-05-28T14:50:23.411957" elapsed="0.112974"/>
+</kw>
+<kw name="E informa a dosagem">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DOSAGEM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.525516" elapsed="0.015616"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:23.542329" level="INFO">Typing text '50mg' into text field 'id=dosagem'.</msg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.542118" elapsed="0.023904"/>
+</kw>
+<arg>'${dosagem}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.541516" elapsed="0.024576"/>
+</kw>
+<arg>50mg</arg>
+<status status="PASS" start="2026-05-28T14:50:23.525120" elapsed="0.041018"/>
+</kw>
+<kw name="E informa o horario">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_HORARIO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.566470" elapsed="0.010083"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:23.577296" level="INFO">Typing text '08:00' into text field 'id=horario'.</msg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.577119" elapsed="0.023122"/>
+</kw>
+<arg>'${horario}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.576695" elapsed="0.023613"/>
+</kw>
+<arg>08:00</arg>
+<status status="PASS" start="2026-05-28T14:50:23.566286" elapsed="0.034068"/>
+</kw>
+<kw name="Quando solicita o cadastro">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:23.600784" level="INFO">Clicking button 'id=btn-cadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.600654" elapsed="0.033472"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T14:50:24.636428" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T14:50:23.634259" elapsed="1.002359"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:23.600495" elapsed="1.036279"/>
+</kw>
+<kw name="Então a mensagem deve ser">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAGEM}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.637634" elapsed="0.013378"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:24.666329" level="INFO">Element 'id=mensagem' contains text 'Medicamento cadastrado com sucesso!'.</msg>
+<arg>${MENSAGEM}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.651318" elapsed="0.015159"/>
+</kw>
+<arg>Medicamento cadastrado com sucesso!</arg>
+<status status="PASS" start="2026-05-28T14:50:24.637116" elapsed="0.029509"/>
+</kw>
+<doc>Tabela de Decisão — Regras R1, R2, R3 satisfeitas</doc>
+<status status="PASS" start="2026-05-28T14:50:23.360888" elapsed="1.306001"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve validar nome obrigatório" line="26">
+<kw name="Dado que o usuario acessa a tela de cadastro">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:24.668609" level="INFO">Opening url 'http://localhost:3000/cadastrar'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.668126" elapsed="0.031069"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.699607" elapsed="0.006562"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:24.667803" elapsed="0.038467"/>
+</kw>
+<kw name="E informa o nome">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.706867" elapsed="0.010888"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${nome}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.717925" elapsed="0.000437"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:24.706465" elapsed="0.011950"/>
+</kw>
+<kw name="E informa a dosagem">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DOSAGEM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.718778" elapsed="0.009095"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:24.728673" level="INFO">Typing text '50mg' into text field 'id=dosagem'.</msg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.728507" elapsed="0.024847"/>
+</kw>
+<arg>'${dosagem}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.728028" elapsed="0.025434"/>
+</kw>
+<arg>50mg</arg>
+<status status="PASS" start="2026-05-28T14:50:24.718542" elapsed="0.034978"/>
+</kw>
+<kw name="E informa o horario">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_HORARIO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.753901" elapsed="0.011939"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:24.766517" level="INFO">Typing text '08:00' into text field 'id=horario'.</msg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.766385" elapsed="0.023960"/>
+</kw>
+<arg>'${horario}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.765968" elapsed="0.024464"/>
+</kw>
+<arg>08:00</arg>
+<status status="PASS" start="2026-05-28T14:50:24.753693" elapsed="0.036798"/>
+</kw>
+<kw name="Quando solicita o cadastro">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:24.791079" level="INFO">Clicking button 'id=btn-cadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.790948" elapsed="0.020763"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T14:50:25.814439" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T14:50:24.811837" elapsed="1.003241"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:24.790765" elapsed="1.024713"/>
+</kw>
+<kw name="Então a mensagem deve ser">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAGEM}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.816676" elapsed="0.011348"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:25.837888" level="INFO">Element 'id=mensagem' contains text 'Nome do medicamento é obrigatório'.</msg>
+<arg>${MENSAGEM}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.828454" elapsed="0.009510"/>
+</kw>
+<arg>Nome do medicamento é obrigatório</arg>
+<status status="PASS" start="2026-05-28T14:50:25.816050" elapsed="0.021993"/>
+</kw>
+<doc>Tabela de Decisão — Regra R1 violada (nome vazio)</doc>
+<status status="PASS" start="2026-05-28T14:50:24.667167" elapsed="1.171019"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve validar dosagem obrigatória" line="35">
+<kw name="Dado que o usuario acessa a tela de cadastro">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:25.838960" level="INFO">Opening url 'http://localhost:3000/cadastrar'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.838861" elapsed="0.020931"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.859923" elapsed="0.005390"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:25.838672" elapsed="0.026721"/>
+</kw>
+<kw name="E informa o nome">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.865788" elapsed="0.009334"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:25.876335" level="INFO">Typing text 'Atenolol' into text field 'id=nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.875942" elapsed="0.023973"/>
+</kw>
+<arg>'${nome}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.875307" elapsed="0.024678"/>
+</kw>
+<arg>Atenolol</arg>
+<status status="PASS" start="2026-05-28T14:50:25.865556" elapsed="0.034476"/>
+</kw>
+<kw name="E informa a dosagem">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DOSAGEM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.900519" elapsed="0.010342"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${dosagem}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.910998" elapsed="0.000424"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:25.900193" elapsed="0.011284"/>
+</kw>
+<kw name="E informa o horario">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_HORARIO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.911771" elapsed="0.008936"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:25.921593" level="INFO">Typing text '08:00' into text field 'id=horario'.</msg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.921410" elapsed="0.022429"/>
+</kw>
+<arg>'${horario}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.920857" elapsed="0.023058"/>
+</kw>
+<arg>08:00</arg>
+<status status="PASS" start="2026-05-28T14:50:25.911609" elapsed="0.032359"/>
+</kw>
+<kw name="Quando solicita o cadastro">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:25.944399" level="INFO">Clicking button 'id=btn-cadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.944285" elapsed="0.019919"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T14:50:26.965318" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T14:50:25.964388" elapsed="1.001123"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:25.944129" elapsed="1.021574"/>
+</kw>
+<kw name="Então a mensagem deve ser">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAGEM}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:26.966766" elapsed="0.016355"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:26.992797" level="INFO">Element 'id=mensagem' contains text 'Dosagem é obrigatória'.</msg>
+<arg>${MENSAGEM}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-05-28T14:50:26.983407" elapsed="0.009487"/>
+</kw>
+<arg>Dosagem é obrigatória</arg>
+<status status="PASS" start="2026-05-28T14:50:26.966233" elapsed="0.026759"/>
+</kw>
+<doc>Tabela de Decisão — Regra R2 violada (dosagem vazia)</doc>
+<status status="PASS" start="2026-05-28T14:50:25.838374" elapsed="1.154933"/>
+</test>
+<test id="s1-t4" name="CT04 - Deve validar horário inválido" line="44">
+<kw name="Dado que o usuario acessa a tela de cadastro">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:26.994510" level="INFO">Opening url 'http://localhost:3000/cadastrar'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-05-28T14:50:26.994386" elapsed="0.030822"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_CADASTRAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.025475" elapsed="0.010599"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:26.994160" elapsed="0.042004"/>
+</kw>
+<kw name="E informa o nome">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.036803" elapsed="0.011209"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:27.049615" level="INFO">Typing text 'Rivotril' into text field 'id=nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.049372" elapsed="0.027796"/>
+</kw>
+<arg>'${nome}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.048177" elapsed="0.029078"/>
+</kw>
+<arg>Rivotril</arg>
+<status status="PASS" start="2026-05-28T14:50:27.036503" elapsed="0.040814"/>
+</kw>
+<kw name="E informa a dosagem">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_DOSAGEM}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.077802" elapsed="0.009978"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:27.088602" level="INFO">Typing text '2mg' into text field 'id=dosagem'.</msg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.088365" elapsed="0.020991"/>
+</kw>
+<arg>'${dosagem}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_DOSAGEM}</arg>
+<arg>${dosagem}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.087938" elapsed="0.021488"/>
+</kw>
+<arg>2mg</arg>
+<status status="PASS" start="2026-05-28T14:50:27.077507" elapsed="0.031966"/>
+</kw>
+<kw name="E informa o horario">
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${INPUT_HORARIO}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.109837" elapsed="0.009783"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:27.120273" level="INFO">Typing text '99:99' into text field 'id=horario'.</msg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.120147" elapsed="0.024705"/>
+</kw>
+<arg>'${horario}' != '${EMPTY}'</arg>
+<arg>Input Text</arg>
+<arg>${INPUT_HORARIO}</arg>
+<arg>${horario}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.119743" elapsed="0.025179"/>
+</kw>
+<arg>99:99</arg>
+<status status="PASS" start="2026-05-28T14:50:27.109640" elapsed="0.035329"/>
+</kw>
+<kw name="Quando solicita o cadastro">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:27.145426" level="INFO">Clicking button 'id=btn-cadastrar'.</msg>
+<arg>${BTN_CADASTRAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.145305" elapsed="0.020962"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-05-28T14:50:28.167471" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-05-28T14:50:27.166427" elapsed="1.001320"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:27.145148" elapsed="1.022860"/>
+</kw>
+<kw name="Então a mensagem deve ser">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAGEM}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-05-28T14:50:28.169356" elapsed="0.012469"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-05-28T14:50:28.193332" level="INFO">Element 'id=mensagem' contains text 'Horário inválido. Use o formato HH:MM'.</msg>
+<arg>${MENSAGEM}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-05-28T14:50:28.182251" elapsed="0.011199"/>
+</kw>
+<arg>Horário inválido. Use o formato HH:MM</arg>
+<status status="PASS" start="2026-05-28T14:50:28.168572" elapsed="0.025002"/>
+</kw>
+<doc>Tabela de Decisão — Regra R3 violada (horário fora do formato)</doc>
+<status status="PASS" start="2026-05-28T14:50:26.993635" elapsed="1.200168"/>
+</test>
+<kw name="Fechar Navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-05-28T14:50:28.194723" elapsed="0.080809"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:28.194495" elapsed="0.081154"/>
+</kw>
+<status status="PASS" start="2026-05-28T14:50:12.763714" elapsed="15.511966"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Teste1 Cadastro Medicamento" id="s1" pass="4" fail="0" skip="0">Teste1 Cadastro Medicamento</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
