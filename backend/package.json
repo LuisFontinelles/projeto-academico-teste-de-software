@@ -1,0 +1,24 @@
+{
+  "name": "caresenior-api",
+  "version": "1.0.0",
+  "description": "API do CareSenior - Cuidado familiar compartilhado de medicamentos",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}
