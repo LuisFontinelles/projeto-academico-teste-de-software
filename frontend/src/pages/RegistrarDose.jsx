@@ -35,7 +35,7 @@ export default function RegistrarDose() {
         <form id="form-dose" onSubmit={submit}>
           <label>
             Medicamento
-            <select id="medicamentoId" name="medicamentoId" value={form.medicamentoId} onChange={handle}>
+            <select id="medicamentoId" name="medicamentoId" value={form.medicamentoId} onChange={handle} required>
               <option value="">Selecione...</option>
               {medicamentos.map((m) => (
                 <option key={m.id} value={m.id}>
@@ -53,6 +53,7 @@ export default function RegistrarDose() {
               placeholder="Nome do cuidador ou familiar"
               value={form.administradoPor}
               onChange={handle}
+              required
             />
           </label>
           <button id="btn-registrar" type="submit" className="btn-success">
