@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
 
 // POST /medicamentos
 router.post('/', (req, res) => {
-  const { nome, dosagem, horario } = req.body;
+  const { nome, dosagem, horario, intervalo } = req.body;
 
   if (!nome || typeof nome !== 'string' || nome.trim().length === 0) {
     return res.status(400).json({
@@ -39,6 +39,18 @@ router.post('/', (req, res) => {
       codigoErro: 'NOME_INVALIDO',
       timestamp: new Date().toISOString(),
     });
+  }
+
+  if (intervalo !== undefined && intervalo !== '' && intervalo !== null) {
+    const numInt = Number(intervalo);
+    if (isNaN(numInt) || numInt <= 0 || numInt > 24) {
+      return res.status(400).json({
+        status: 'erro',
+        mensagem: 'Intervalo de horas deve ser um número entre 1 e 24',
+        codigoErro: 'INTERVALO_INVALIDO',
+        timestamp: new Date().toISOString(),
+      });
+    }
   }
 
   if (nome.trim().length > 100) {
@@ -78,7 +90,12 @@ router.post('/', (req, res) => {
     });
   }
 
-  const med = addMedicamento({ nome: nome.trim(), dosagem: dosagem.trim(), horario });
+  const med = addMedicamento({
+    nome: nome.trim(),
+    dosagem: dosagem.trim(),
+    horario,
+    intervalo: (intervalo !== undefined && intervalo !== '' && intervalo !== null) ? Number(intervalo) : null
+  });
 
   res.status(201).json({
     status: 'sucesso',

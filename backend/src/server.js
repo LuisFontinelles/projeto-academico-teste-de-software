@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import medicamentosRouter from './routes/medicamentos.js';
 import dosesRouter from './routes/doses.js';
+import idososRouter from './routes/idosos.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,6 +18,7 @@ app.get('/status', (req, res) => {
 // Rotas
 app.use('/medicamentos', medicamentosRouter);
 app.use('/doses', dosesRouter);
+app.use('/idosos', idososRouter);
 
 // 404
 app.use((req, res) => {

@@ -3,6 +3,7 @@ import Medicamentos from './pages/Medicamentos.jsx'
 import CadastrarMedicamento from './pages/CadastrarMedicamento.jsx'
 import RegistrarDose from './pages/RegistrarDose.jsx'
 import Historico from './pages/Historico.jsx'
+import CadastrarIdoso from './pages/CadastrarIdoso.jsx'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <NavLink to="/cadastrar">Cadastrar</NavLink>
         <NavLink to="/registrar-dose">Registrar Dose</NavLink>
         <NavLink to="/historico">Histórico</NavLink>
+        <NavLink to="/cadastrar-idoso">Cadastrar Idoso</NavLink>
       </nav>
       <main>
         <Routes>
@@ -20,6 +22,7 @@ export default function App() {
           <Route path="/cadastrar" element={<CadastrarMedicamento />} />
           <Route path="/registrar-dose" element={<RegistrarDose />} />
           <Route path="/historico" element={<Historico />} />
+          <Route path="/cadastrar-idoso" element={<CadastrarIdoso />} />
         </Routes>
       </main>
     </>

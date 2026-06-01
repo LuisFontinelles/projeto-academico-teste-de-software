@@ -1,8 +1,10 @@
 // Banco de dados em memória
 let medicamentos = [];
 let doses = [];
+let idosos = [];
 let nextMedicamentoId = 1;
 let nextDoseId = 1;
+let nextIdosoId = 1;
 
 export function getMedicamentos() {
   return medicamentos;
@@ -12,12 +14,30 @@ export function getMedicamentoById(id) {
   return medicamentos.find((m) => m.id === id);
 }
 
+function gerarRotina(horarioInicial, intervaloHoras) {
+  if (!intervaloHoras || intervaloHoras <= 0) return [horarioInicial];
+  const [h, m] = horarioInicial.split(':').map(Number);
+  const horarios = [];
+  for (let i = 0; i < 24; i += Number(intervaloHoras)) {
+    const totalMinutos = (h * 60 + m + (i * 60)) % (24 * 60);
+    const currentH = Math.floor(totalMinutos / 60);
+    const currentM = totalMinutos % 60;
+    const formatado = `${String(currentH).padStart(2, '0')}:${String(currentM).padStart(2, '0')}`;
+    if (!horarios.includes(formatado)) {
+      horarios.push(formatado);
+    }
+  }
+  return horarios.sort();
+}
+
 export function addMedicamento(data) {
   const medicamento = {
     id: nextMedicamentoId++,
     nome: data.nome,
     dosagem: data.dosagem,
     horario: data.horario,
+    intervalo: data.intervalo ? Number(data.intervalo) : null,
+    horarios: data.intervalo ? gerarRotina(data.horario, Number(data.intervalo)) : [data.horario],
     criadoEm: new Date().toISOString(),
   };
   medicamentos.push(medicamento);
@@ -44,25 +64,32 @@ export function getDoses() {
 
 export function getDosesPendentes() {
   const agora = new Date();
-  return medicamentos
-    .map((med) => {
-      const [hora, minuto] = med.horario.split(':').map(Number);
+  const hojeStr = agora.toISOString().split('T')[0];
+  const pendentes = [];
+
+  for (const med of medicamentos) {
+    const horarios = med.horarios || [med.horario];
+    for (const hStr of horarios) {
+      const [hora, minuto] = hStr.split(':').map(Number);
       const horarioPrevisto = new Date();
       horarioPrevisto.setHours(hora, minuto, 0, 0);
+
       const foiAdministrada = doses.some(
-        (d) => d.medicamentoId === med.id && d.data === agora.toISOString().split('T')[0]
+        (d) => d.medicamentoId === med.id && d.data === hojeStr && d.hora.split(':')[0] === hStr.split(':')[0]
       );
+
       if (!foiAdministrada && horarioPrevisto < agora) {
-        return {
+        pendentes.push({
           medicamentoId: med.id,
           nome: med.nome,
-          horarioPrevisto: med.horario,
+          horarioPrevisto: hStr,
           status: 'pendente',
-        };
+        });
       }
-      return null;
-    })
-    .filter(Boolean);
+    }
+  }
+
+  return pendentes;
 }
 
 export function addDose(data) {
@@ -79,9 +106,56 @@ export function addDose(data) {
   return dose;
 }
 
+// ── Idosos ──────────────────────────────────────────────────────────────────
+
+/**
+ * Calcula a idade em anos completos a partir de uma data de nascimento (YYYY-MM-DD).
+ */
+function calcularIdade(dataNascimento) {
+  const hoje = new Date();
+  const nasc = new Date(dataNascimento);
+  let idade = hoje.getFullYear() - nasc.getFullYear();
+  const m = hoje.getMonth() - nasc.getMonth();
+  if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) {
+    idade--;
+  }
+  return idade;
+}
+
+export function getIdosos() {
+  return idosos;
+}
+
+export function getIdosoById(id) {
+  return idosos.find((i) => i.id === id);
+}
+
+export function addIdoso(data) {
+  const idade = calcularIdade(data.dataNascimento);
+  const idoso = {
+    id: nextIdosoId++,
+    nome: data.nome,
+    dataNascimento: data.dataNascimento,
+    idade,
+    // Contato de urgência
+    contatoUrgenciaNome: data.contatoUrgenciaNome,
+    contatoUrgenciaTelefone: data.contatoUrgenciaTelefone,
+    contatoUrgenciaRelacao: data.contatoUrgenciaRelacao || null,
+    // Dependência
+    dependenciaFuncional: data.dependenciaFuncional ?? false,
+    dependenciaCognitiva: data.dependenciaCognitiva ?? false,
+    observacoes: data.observacoes || null,
+    criadoEm: new Date().toISOString(),
+  };
+  idosos.push(idoso);
+  return idoso;
+}
+
 export function resetDb() {
   medicamentos = [];
   doses = [];
+  idosos = [];
   nextMedicamentoId = 1;
   nextDoseId = 1;
+  nextIdosoId = 1;
 }

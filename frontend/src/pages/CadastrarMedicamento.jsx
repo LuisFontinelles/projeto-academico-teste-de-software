@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { postMedicamento } from '../api.js'
 
 export default function CadastrarMedicamento() {
-  const [form, setForm] = useState({ nome: '', dosagem: '', horario: '' })
+  const [form, setForm] = useState({ nome: '', dosagem: '', horario: '', intervalo: '' })
   const [msg, setMsg] = useState(null)
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
@@ -13,7 +13,7 @@ export default function CadastrarMedicamento() {
     const res = await postMedicamento(form)
     if (res.ok) {
       setMsg({ tipo: 'success', texto: 'Medicamento cadastrado com sucesso!' })
-      setForm({ nome: '', dosagem: '', horario: '' })
+      setForm({ nome: '', dosagem: '', horario: '', intervalo: '' })
     } else {
       setMsg({ tipo: 'error', texto: res.data.mensagem || 'Erro ao cadastrar.' })
     }
@@ -56,6 +56,19 @@ export default function CadastrarMedicamento() {
               placeholder="Ex: 08:00"
               value={form.horario}
               onChange={handle}
+            />
+          </label>
+          <label>
+            Intervalo de administração (horas)
+            <input
+              id="intervalo"
+              name="intervalo"
+              type="number"
+              placeholder="Ex: 8 (para de 8 em 8 horas)"
+              value={form.intervalo}
+              onChange={handle}
+              min="1"
+              max="24"
             />
           </label>
           <button id="btn-cadastrar" type="submit" className="btn-primary">
